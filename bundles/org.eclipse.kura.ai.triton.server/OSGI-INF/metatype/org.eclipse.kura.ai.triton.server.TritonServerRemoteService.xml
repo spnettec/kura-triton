@@ -13,56 +13,55 @@
 	 Eurotech
 
 -->
-<MetaData xmlns="http://www.osgi.org/xmlns/metatype/v1.2.0" localization="en_us">
+<MetaData xmlns="http://www.osgi.org/xmlns/metatype/v1.2.0" localization="OSGI-INF/l10n/TritonServerRemoteService">
     <OCD id="org.eclipse.kura.ai.triton.server.TritonServerRemoteService"
-         name="Nvidia Triton Remote Server"
-         description="Configuration for the Remote Nvidia Triton Server">
+         name="%name"
+         description="%description">
 
         <AD id="server.address"
-            name="Nvidia Triton Server address"
+            name="%serverAddress"
             type="String"
             cardinality="0"
             required="true"
             default="localhost"
-            description="The address of the remote Nvidia Triton Server.">
+            description="%serverAddressDesc">
         </AD>
 
         <AD id="server.ports"
-            name="Nvidia Triton Server ports"
+            name="%serverPorts"
             type="Integer"
             cardinality="3"
             min="1024"
             max="65535"
             required="true"
             default="4000,4001,4002"
-            description="The ports used to connect to the server for HTTP, GPRC and Metrics services.">
+            description="%serverPortsDesc">
         </AD>
 
         <AD id="models"
-            name="Inference Models"
+            name="%models"
             type="String"
             cardinality="0"
             required="false"
             default=""
-            description="A comma separated list of inference model names that the server will load.">
+            description="%modelsDesc">
         </AD>
 
         <AD id="timeout"
-            name="Timeout (in seconds) for time consuming tasks"
+            name="%timeout"
             type="Integer"
             cardinality="0"
             required="false"
             min="1"
             max="3600"
             default="3"
-            description="Timeout (in seconds) for time consuming tasks like model load. If the task exceeds the timeout, the operation will be terminated with an error.">
+            description="%timeoutDesc">
         </AD>
 
         <AD id="grpc.max.size"
-        	name="Max. GRPC message size (bytes)"
+        	name="%grpcMaxSize"
         	type="Integer"
-        	description="Maximum accepted input size for the GRPC calls.
-        	Increase this value if the model input size is bigger than the default."
+        	description="%grpcMaxSizeDesc"
         	cardinality="0"
         	required="true"
         	default="4194304"

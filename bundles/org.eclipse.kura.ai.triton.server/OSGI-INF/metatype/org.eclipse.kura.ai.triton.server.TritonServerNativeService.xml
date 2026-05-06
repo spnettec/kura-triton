@@ -13,83 +13,82 @@
      Eurotech
 
 -->
-<MetaData xmlns="http://www.osgi.org/xmlns/metatype/v1.2.0" localization="en_us">
+<MetaData xmlns="http://www.osgi.org/xmlns/metatype/v1.2.0" localization="OSGI-INF/l10n/TritonServerNativeService">
     <OCD id="org.eclipse.kura.ai.triton.server.TritonServerNativeService"
-         name="Nvidia Triton Server"
-         description="Configuration for the Local Native Nvidia Triton Server">
+         name="%name"
+         description="%description">
 
         <AD id="server.ports"
-            name="Nvidia Triton Server ports"
+            name="%serverPorts"
             type="Integer"
             cardinality="3"
             min="1024"
             max="65535"
             required="true"
             default="4000,4001,4002"
-            description="The ports used to connect to the server for HTTP, GPRC and Metrics services.">
+            description="%serverPortsDesc">
         </AD>
 
         <AD id="local.model.repository.path"
-            name="Local model repository path"
+            name="%localModelRepositoryPath"
             type="String"
             cardinality="0"
             required="true"
             default=""
-            description="Specify the path on the filesystem where the models are stored.">
+            description="%localModelRepositoryPathDesc">
        </AD>
 
        <AD id="local.model.repository.password"
-            name="Local model decryption password"
+            name="%localModelRepositoryPassword"
             type="Password"
             cardinality="0"
             required="false"
             default=""
-            description="Specify the password to be used for decrypting models stored in the model repository. If none is specified, models are supposed to be plaintext.">
+            description="%localModelRepositoryPasswordDesc">
        </AD>
 
         <AD id="models"
-            name="Inference Models"
+            name="%models"
             type="String"
             cardinality="0"
             required="false"
             default=""
-            description="A comma separated list of inference model names that the server will load.">
+            description="%modelsDesc">
         </AD>
 
         <AD id="local.backends.path"
-            name="Local backends path"
+            name="%localBackendsPath"
             type="String"
             cardinality="0"
             required="true"
             default=""
-            description="Specify the path on the filesystem where the backends are stored.">
-         </AD>
+            description="%localBackendsPathDesc">
+            </AD>
 
         <AD id="local.backends.config"
-            name="Optional configuration for the local backends"
+            name="%localBackendsConfig"
             type="String"
             cardinality="0"
             required="false"
             default=""
-            description="A semi-colon separated list of configuration for the backends. i.e. tensorflow,version=2;tensorflow,allow-soft-placement=false">
+            description="%localBackendsConfigDesc">
         </AD>
 
         <AD id="timeout"
-            name="Timeout (in seconds) for time consuming tasks"
+            name="%timeout"
             type="Integer"
             cardinality="0"
             required="false"
             min="1"
             max="3600"
             default="3"
-            description="Timeout (in seconds) for time consuming tasks like server startup, shutdown or model load. If the task exceeds the timeout, the operation will be terminated with an error.">
+            description="%timeoutDesc">
         </AD>
 
         <AD id="grpc.max.size"
-            name="Max. GRPC message size (bytes)"
+            name="%grpcMaxSize"
             type="Integer"
-            description="Maximum accepted input size for the GRPC calls.
-            Increase this value if the model input size is bigger than the default."
+            description="%grpcMaxSizeDesc"
             cardinality="0"
             required="true"
             default="4194304"
@@ -97,12 +96,12 @@
         </AD>
         
         <AD id="enable.metrics"
-            name="Enable Triton Server Metrics"
+            name="%enableMetrics"
             type="Boolean"
             cardinality="0"
             required="true"
             default="true"
-            description="Enable the Triton Server Metrics feature. This property allows to retrieve models and GPU metrics from an instance of Triton Server.">
+            description="%enableMetricsDesc">
         </AD> 
 
     </OCD>
