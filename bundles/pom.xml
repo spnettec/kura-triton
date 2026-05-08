@@ -372,6 +372,57 @@
                                         <ignore />
                                     </action>
                                 </pluginExecution>
+                                <!-- Tycho 4.x/5.x m2e fallback: tell m2e to skip these mojos in IDE
+                                     incremental builds; CLI Maven still runs them normally. -->
+                                <pluginExecution>
+                                    <pluginExecutionFilter>
+                                        <groupId>org.eclipse.tycho</groupId>
+                                        <artifactId>tycho-packaging-plugin</artifactId>
+                                        <versionRange>[4.0.0,)</versionRange>
+                                        <goals>
+                                            <goal>build-qualifier</goal>
+                                            <goal>build-qualifier-aggregator</goal>
+                                            <goal>validate-id</goal>
+                                            <goal>validate-version</goal>
+                                            <goal>package-plugin</goal>
+                                            <goal>package-feature</goal>
+                                            <goal>package-update-site</goal>
+                                            <goal>package-iu</goal>
+                                            <goal>package-target-definition</goal>
+                                            <goal>update-consumer-pom</goal>
+                                        </goals>
+                                    </pluginExecutionFilter>
+                                    <action>
+                                        <ignore />
+                                    </action>
+                                </pluginExecution>
+                                <pluginExecution>
+                                    <pluginExecutionFilter>
+                                        <groupId>org.eclipse.tycho</groupId>
+                                        <artifactId>tycho-p2-plugin</artifactId>
+                                        <versionRange>[4.0.0,)</versionRange>
+                                        <goals>
+                                            <goal>p2-metadata</goal>
+                                            <goal>p2-metadata-default</goal>
+                                        </goals>
+                                    </pluginExecutionFilter>
+                                    <action>
+                                        <ignore />
+                                    </action>
+                                </pluginExecution>
+                                <pluginExecution>
+                                    <pluginExecutionFilter>
+                                        <groupId>org.eclipse.tycho</groupId>
+                                        <artifactId>target-platform-configuration</artifactId>
+                                        <versionRange>[4.0.0,)</versionRange>
+                                        <goals>
+                                            <goal>target-platform</goal>
+                                        </goals>
+                                    </pluginExecutionFilter>
+                                    <action>
+                                        <ignore />
+                                    </action>
+                                </pluginExecution>
                             </pluginExecutions>
                         </lifecycleMappingMetadata>
                     </configuration>
