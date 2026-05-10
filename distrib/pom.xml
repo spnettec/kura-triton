@@ -44,7 +44,7 @@
 
     <properties>
     	
-        <addon.installation.dir>/opt/eclipse/kura/plugins/6s</addon.installation.dir>
+        <addon.installation.dir>/opt/eclipse/kura/siblings/triton/6s</addon.installation.dir>
 
         <!-- name of the JAR produced in bundles/target -->
         <jar.name>org.eclipse.kura.ai.triton.server-${project.version}.jar</jar.name>
