@@ -1,0 +1,49 @@
+#!/bin/bash
+#
+# Copyright (c) 2026 YOFC IOT and others
+#
+# This program and the accompanying materials are made
+# available under the terms of the Eclipse Public License 2.0
+# which is available at https://www.eclipse.org/legal/epl-2.0/
+#
+# SPDX-License-Identifier: EPL-2.0
+#
+
+case "$1" in
+    configure)
+        STATUS=install
+        ;;
+
+    abort-remove)
+        echo "Uninstallation failed."
+        exit 1
+        ;;
+
+    abort-upgrade)
+        echo "Upgrade failed."
+        exit 1
+        ;;
+
+    *)
+        echo "postinst called with unknown parameter $1"
+        exit 1
+        ;;
+esac
+
+echo "Installing Kura Triton addon..."
+export TIMESTAMP=$(date +%Y%m%d%H%M)
+export LOG=/tmp/kura_triton_install_${TIMESTAMP}.log
+
+bash /opt/eclipse/kura/.data/kura_triton_install.sh ${STATUS} /opt/eclipse kura 2>&1 | tee -a $LOG | systemd-cat -t Kura
+
+mkdir -p /opt/eclipse/kura/log
+mv $LOG /opt/eclipse/kura/log/
+
+if test -f /tmp/install_error; then
+    echo "Kura Triton addon installation failed."
+    rm /tmp/install_error
+    exit 1
+fi
+
+echo "Kura Triton addon installation completed."
+exit 0
