@@ -45,6 +45,8 @@
         <perfmark-api.version>0.26.0</perfmark-api.version>
         <protobuf.version>4.30.2</protobuf.version>
 
+        <maven-compiler-plugin.version>3.14.0</maven-compiler-plugin.version>
+        <maven-clean-plugin.version>3.5.0</maven-clean-plugin.version>
         <maven.compiler.release>21</maven.compiler.release>
     </properties>
 
@@ -175,6 +177,21 @@
                         <showDeprecation>true</showDeprecation>
                         <showWarnings>true</showWarnings>
                         <requireJREPackageImports>true</requireJREPackageImports>
+                    </configuration>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-clean-plugin</artifactId>
+                    <version>${maven-clean-plugin.version}</version>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>${maven-compiler-plugin.version}</version>
+                    <configuration>
+                        <release>${maven.compiler.release}</release>
                     </configuration>
                 </plugin>
 
