@@ -328,8 +328,9 @@ public class TritonServerServiceOptions {
         TritonServerServiceOptions other = (TritonServerServiceOptions) obj;
         return this.grpcPort == other.grpcPort && this.httpPort == other.httpPort && this.isLocal == other.isLocal
                 && this.metricsPort == other.metricsPort && this.timeout == other.timeout
-                && this.containerCpus == other.containerCpus && this.containerGpus == other.containerGpus
-                && this.containerMemory == other.containerMemory && this.nRetries == other.nRetries
+                && Objects.equals(this.containerCpus, other.containerCpus)
+                && Objects.equals(this.containerGpus, other.containerGpus)
+                && Objects.equals(this.containerMemory, other.containerMemory) && this.nRetries == other.nRetries
                 && Objects.equals(this.properties, other.properties);
     }
 
