@@ -144,6 +144,7 @@ public abstract class TritonServerServiceAbs implements InferenceEngineMetricsSe
         if (nonNull(this.tritonServerInstanceManager)) {
             stopManagedInstance();
         }
+        closeGrpcChannel();
 
         if (isConfigurationValid()) {
             setGrpcResources();
@@ -159,6 +160,10 @@ public abstract class TritonServerServiceAbs implements InferenceEngineMetricsSe
         if (nonNull(this.tritonServerInstanceManager)) {
             stopManagedInstance();
         }
+        closeGrpcChannel();
+    }
+
+    private void closeGrpcChannel() {
         if (nonNull(this.grpcChannel)) {
             this.grpcChannel.shutdownNow();
             try {
