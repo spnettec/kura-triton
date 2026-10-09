@@ -7,15 +7,15 @@ Bundle-Vendor: Eclipse Kura
 Require-Capability: osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=17))"
 Service-Component: OSGI-INF/*.xml
 Bundle-ClassPath: .,
- grpc-api.jar,
- grpc-context.jar,
- grpc-core.jar,
- grpc-netty-shaded.jar,
- grpc-protobuf.jar,
- grpc-protobuf-lite.jar,
- grpc-stub.jar,
- perfmark-api.jar,
- protobuf-java-util.jar
+ lib/grpc-api.jar,
+ lib/grpc-context.jar,
+ lib/grpc-core.jar,
+ lib/grpc-netty-shaded.jar,
+ lib/grpc-protobuf.jar,
+ lib/grpc-protobuf-lite.jar,
+ lib/grpc-stub.jar,
+ lib/perfmark-api.jar,
+ lib/protobuf-java-util.jar
 Bundle-ActivationPolicy: lazy
 Import-Package: com.google.common.base;version="25.0.0",
  com.google.common.io;version="25.0.0",
