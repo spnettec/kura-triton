@@ -46,6 +46,5 @@
         <module>bundles</module>
         <module>distrib</module>
         <module>dp</module>
-        <module>tests</module>
     </modules>
 </project>
