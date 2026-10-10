@@ -313,8 +313,12 @@ public class TritonServerServiceOptions {
 
     @Override
     public int hashCode() {
+        int propertiesHash = this.properties.entrySet().stream()
+                .mapToInt(entry -> Objects.hashCode(entry.getKey())
+                        ^ Arrays.deepHashCode(new Object[] { entry.getValue() }))
+                .sum();
         return Objects.hash(this.grpcPort, this.httpPort, this.isLocal, this.metricsPort, this.timeout, this.nRetries,
-                this.properties);
+                propertiesHash);
     }
 
     @Override
@@ -331,7 +335,10 @@ public class TritonServerServiceOptions {
                 && Objects.equals(this.containerCpus, other.containerCpus)
                 && Objects.equals(this.containerGpus, other.containerGpus)
                 && Objects.equals(this.containerMemory, other.containerMemory) && this.nRetries == other.nRetries
-                && Objects.equals(this.properties, other.properties);
+                // ConfigAdmin copies array values; their contents determine whether an update is new.
+                && this.properties.keySet().equals(other.properties.keySet())
+                && this.properties.entrySet().stream()
+                        .allMatch(entry -> Objects.deepEquals(entry.getValue(), other.properties.get(entry.getKey())));
     }
 
 }
