@@ -24,8 +24,7 @@ GPU, native manager, container or installed Debian acceptance.
 
 ```sh
 JAVA_HOME=/Library/Java/JavaVirtualMachines/temurin-21.jdk/Contents/Home \
-  /opt/homebrew/Cellar/maven/3.10.0/libexec/bin/mvn -B -f pom.xml \
-  -Dmaven.repo.local=/Users/heyoulin/iot-kura-develop/migration-m2 package
+  /opt/homebrew/Cellar/maven/3.10.0/libexec/bin/mvn -B -f pom.xml package
 python3 run.py --runtime /absolute/complete-runtime \
   --template-profile /absolute/owned-template-profile --archive /absolute/new-archive \
   --java /Library/Java/JavaVirtualMachines/temurin-21.jdk/Contents/Home/bin/java \
